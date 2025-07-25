@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    const router = new Navigo('/', false);
+    const router = new Navigo('/');
 
     router.on("/", (match) => {
             show("home")
@@ -17,10 +17,9 @@ window.addEventListener("load", () => {
             router.navigate("/");
         })
         .resolve();
-
-    show("home");
 });
 
+// make page conetent match loc.html
 function show(loc) {
-    $("#pagecontent").load("assets/" + loc + ".html"); 
+    $("#pagecontent").load("assets/" + loc + ".html");
 }
