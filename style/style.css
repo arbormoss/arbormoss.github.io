@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Pirata+One&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=UnifrakturCook:wght@700&display=swap');
+
 :root {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+
     --base03: #002b36;
     --base02: #073642;
     --base01: #586e75;
@@ -15,23 +21,147 @@
     --blue: #268bd2;
     --cyan: #2aa198;
     --green: #859900;
-    font-family: 'Times New Roman', Times, serif;
 
-    --b0: var(--base0);
-    --b1: var(--base1);
-    --b2: var(--base2);
-    --b3: var(--base3);
+    font-family: "Crimson Pro", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    --bg0: var(--base3);
+    --bg1: var(--base2);
+    --content0: var(--base1);
+    --content1: var(--base0);
+    --content2: var(--base00);
+    --content3: var(--base01);
+    --fg0: var(--base02);
+    --fg1: var(--base03);
+
+    --focus0: var(--magenta);
+    --focus1: var(--yellow);
+    --focus2: var(--orange);
+
+    --bg: var(--bg0);
+
+    --shadow: drop-shadow(6px 6px 0px var(--content2));
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --b0: var(--base00);
-        --b1: var(--base01);
-        --b2: var(--base02);
-        --b3: var(--base03);
+        --bg0: var(--base03);
+        --bg1: var(--base02);
+        --content0: var(--base01);
+        --content1: var(--base00);
+        --content2: var(--base0);
+        --content3: var(--base1);
+        --fg0: var(--base2);
+        --fg1: var(--base3);
+
+        /* --focus0: var(--green);
+        --focus1: var(--violet);
+        --focus2: var(--blue); */
     }
 }
 
 body {
-    background-color: var(--b3);
+    background-color: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "name name char char char"
+        "stats combat combat talents talents"
+        "stats combat combat talents talents"
+        "notes notes notes talents talents";
+}
+
+@media screen and (max-width: 800px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+            "name name char"
+            "stats combat combat"
+            "notes notes talents";
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "name"
+            "char"
+            "stats"
+            "combat"
+            "talents"
+            "notes";
+    }
+}
+
+
+.item {
+    border-radius: 5px;
+    outline: solid 1px var(--content2);
+    background-color: var(--bg);
+    color: var(--content3);
+    padding: 15px;
+    margin: 5px;
+    min-height: 50px;
+    height: 1fr;
+}
+
+.item:hover {
+    outline: solid 3px var(--content2);
+}
+
+.pgwidth {
+    width: 100%;
+    max-width: 900px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    filter: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 3em;
+    margin: 10px;
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 5px;
+
+    color: var(--focus0);
+
+    font-family: "UnifrakturCook";
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.5em;
+}
+
+b {
+    color: var(--focus1);
+}
+
+strong {
+    color: var(--focus2);
+}
+
+a {
+    color: var(--bold-col);
+    padding-left: 30px;
+    text-decoration: none;
+    font-size: large;
 }
