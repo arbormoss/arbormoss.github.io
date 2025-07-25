@@ -3,16 +3,16 @@ window.addEventListener("load", () => {
 
     router.on({
         '/index.html': () => {
-            $("body").load("assets/home.html");
+            show("<div>home</div>")
         },
         '/': () => {
-            $("body").load("assets/home.html");
+            show("<div>home</div>")
         },
         '/create': () => {
-            $("body").load("assets/create.html");
+            show("<div>create</div>")
         }, 
         '/sheet': () => {
-            $("body").load("assets/sheet.html");
+            show("<div>sheet</div>")
         }, 
     });
 
@@ -20,3 +20,7 @@ window.addEventListener("load", () => {
         router.navigate("/");
     });
 });
+
+function show(loc) {
+    document.getElementById("app").innerHTML = window.location.origin +  loc;
+}
