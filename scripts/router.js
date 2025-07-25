@@ -3,16 +3,16 @@ window.addEventListener("load", () => {
 
     router.on({
         '/index.html': () => {
-            show("<div>home</div>")
+            show("home")
         },
         '/': () => {
-            show("<div>home</div>")
+            show("home")
         },
         '/create': () => {
-            show("<div>create</div>")
+            show("create")
         }, 
         '/sheet': () => {
-            show("<div>sheet</div>")
+            show("sheet")
         }, 
     });
 
@@ -22,5 +22,5 @@ window.addEventListener("load", () => {
 });
 
 function show(loc) {
-    document.getElementById("app").innerHTML = window.location.origin +  loc;
+    $("#pagecontent").load("assets/" + loc + ".html"); 
 }
