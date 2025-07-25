@@ -76,9 +76,9 @@ body {
     grid-template-rows: auto;
     grid-template-areas: 
         "name name char char char"
-        "stats combat combat talents talents"
-        "stats combat combat talents talents"
-        "notes notes notes talents talents";
+        "stats items items items items"
+        "calc items items items items"
+        "notes notes notes notes notes";
 }
 
 @media screen and (max-width: 800px) {
@@ -86,8 +86,9 @@ body {
         grid-template-columns: repeat(3, 1fr);
         grid-template-areas: 
             "name name char"
-            "stats combat combat"
-            "notes notes talents";
+            "stats items items"
+            "calc items items"
+            "notes notes notes";
     }
 }
 
@@ -98,8 +99,8 @@ body {
             "name"
             "char"
             "stats"
-            "combat"
-            "talents"
+            "calc"
+            "items"
             "notes";
     }
 }
@@ -125,10 +126,13 @@ body {
     max-width: 900px;
 }
 
-.header {
+.horiz {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.header {
     filter: var(--shadow);
     margin-bottom: 20px;
 }
@@ -164,4 +168,42 @@ a {
     padding-left: 30px;
     text-decoration: none;
     font-size: large;
+}
+
+input, textarea, .numcontainer {
+    border-radius: 5px;
+    outline: solid 1px var(--content2);
+    background-color: var(--bg);
+    color: var(--content3);
+    border: none;
+}
+
+input{
+    padding: 5px;
+    margin: 5px;
+}
+
+input[type=number] {
+    max-width: 80px;
+}
+input[type=text] {
+    max-width: 100px; 
+}
+
+.numcontainer input[type=number] {
+    outline: none;
+    padding: 0;
+    max-width: 32px;
+}
+
+.numcontainer {
+    margin: 5px;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }

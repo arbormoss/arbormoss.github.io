@@ -1,49 +1,65 @@
 <div class="grid">
-    <p class="item" style="grid-area: name;">
-        <strong>name | </strong> lorem
-    </p>
-    <p class="item" style="grid-area: stats;">
-        [ ] <b>str</b> <br>
-        [ ] <b>dex</b> <br>
-        [ ] <b>wis</b> <br>
-        [ ] <b>wil</b>
-    </p>
-    <p class="item" style="grid-area: char;">
-        <strong>background | </strong>ipsum<br> 
-        <strong>bonds | </strong>dolor, ipsum<br> 
-        <strong>ancestry | </strong>ipsum<br> 
-    </p>    
-    <p class="item" style="grid-area: combat;">
-        [_] <b>ac</b>  <br>
-        [ |_] <b>hp</b>
-    </p>    
-    <p class="item" style="grid-area: talents;">
-        --- a <br>
-        aa <br>
-        aa <br>
-        aa <br>
-        --- b  <br>
-        bb <br>
-        bb <br>
-        bb <br>
-        --- c  <br>
-        cc  <br>
-        cc  <br>
-        cc  <br>
-    </p>    
-    <p class="item" style="grid-area: notes; min-height: 300px;">
-        [_] <b>slots</b>  <br>
-        1. <br>
-        2. <br>
-        3. <br>
-        4. <br>
-        5. <br>
-        6. <br>
-        7. <br>
-        8. <br>
-        9. <br>
-        10. <br>
-        11. <br>
-        ...
-    </p>    
+    <div class="item" style="grid-area: name;">
+        <div class=" horiz">
+            <strong>name</strong><input id="name" type="text" /><br>
+            <strong>ancestry</strong><input id="ancestry" type="text" /><br>
+        </div>
+    </div>
+    <div class="horiz item" style="grid-area: char;">
+        <div class="horiz">
+            <strong>backgroud</strong><textarea id="backgroud"></textarea>
+            <strong>bonds</strong><textarea id="bonds"></textarea>
+        </div>
+    </div>    
+    <div class="item" style="grid-area: stats;">
+        <div class="horiz">
+            <input type="number" id="str" /> <b>str</b>
+        </div>
+        <div class="horiz">
+            <input type="number" id="dex" /><b>dex</b> <br>
+        </div>
+        <div class="horiz">
+            <input type="number" id="wis" /><b>wis</b> <br>
+        </div>
+        <div class="horiz">
+            <input type="number" id="wil" /><b>wil</b>
+        </div>
+    </div>
+    <div class="item" style="grid-area: calc;">
+        <div class="horiz">
+            <input id="ac" type="number"/> <b>ac</b>  <br>
+        </div>
+        <div class="horiz">
+            <div class="numcontainer horiz">
+                <input id="hp" type="number"/>/<input type="number"/>
+            </div>
+            <b>hp</b>
+        </div>
+        <div class="horiz">
+            <input id="slots" type="number"> <b>slots</b>  <br>
+        </div>
+    </div>    
+    <textarea id="items" class="item" style="grid-area: items;">
+slot
+slot
+slot
+slot
+slot
+slot
+slot
+slot
+slot
+    </textarea>
+    <textarea id="notes" class="item" style="grid-area: notes; min-height: 300px;">
+notes
+notes
+notes
+notes
+notes
+notes
+notes
+notes
+notes
+notes
+    </textarea>
 </div>
