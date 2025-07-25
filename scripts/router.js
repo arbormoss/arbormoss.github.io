@@ -1,24 +1,24 @@
 window.addEventListener("load", () => {
-    const router = new Navigo('/');
+    const router = new Navigo('/', false);
 
-    router.on({
-        '/index.html': () => {
+    router.on("/", (match) => {
             show("home")
-        },
-        '/': () => {
+        })
+        .on("/index.html", (match) => {
             show("home")
-        },
-        '/create': () => {
-            show("create")
-        }, 
-        '/sheet': () => {
+        })
+        .on("/sheet", (match) => {
             show("sheet")
-        }, 
-    });
+        })
+        .on("/create", (match) => {
+            show("create")
+        })
+        .on("/(.*)", () => {
+            router.navigate("/");
+        })
+        .resolve();
 
-    router.notFound(() => {
-        router.navigate("/");
-    });
+    show("home");
 });
 
 function show(loc) {
