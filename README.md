@@ -13,5 +13,6 @@ https://arbormoss.github.io/
 - [x] browser save
 - [ ] guided character creator
 - [ ] fix dark theme
+- [ ] file save on mobile
 - [ ] ui tweaks
 - [ ] automate ac, slots? 
