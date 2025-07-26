@@ -96,7 +96,7 @@ body {
     "readme readme readme";
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px), (pointer:none), (pointer:coarse) {
     .grid {
         grid-template-columns: 1fr;
         grid-template-areas: 
@@ -154,7 +154,7 @@ body {
     display: grid;
     grid-template-columns: auto 1fr;
 }
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 540px), (any-pointer: none), (any-pointer: coarse) {
     .splitdouble {
         grid-template-columns: 1fr;
         justify-items: center;
