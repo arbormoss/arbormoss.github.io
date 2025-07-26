@@ -56,9 +56,13 @@
         --fg0: var(--base2);
         --fg1: var(--base3);
 
-        /* --focus0: var(--green);
+        --focus0: var(--violet);
+        --focus1: var(--green);
+        --focus2: var(--blue);
+
+        /*--focus0: var(--green);
         --focus1: var(--violet);
-        --focus2: var(--blue); */
+        --focus2: var(--blue);*/
     }
 }
 
@@ -80,6 +84,20 @@ body {
     "stats items items"
     "calc items items"
     "notes notes notes";
+}
+
+.homegrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    "readme readme readme";
+}
+
+.creategrid {
+    display: grid;/* same as homegrid for now, will be changed when create is added */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    "readme readme readme";
 }
 
 @media screen and (max-width: 800px) {
@@ -145,6 +163,9 @@ body {
         grid-template-columns: 1fr;
         justify-items: center;
     }
+    a:has(strong), a:has(h2) {
+        padding-left: 0;
+    }
 }
 .doublev {
     display: grid;
@@ -162,6 +183,8 @@ body {
 }
 
 .title {
+    text-align: center;
+
     margin-top: 0;
     margin-bottom: 0;
     padding: 5px;
@@ -243,7 +266,7 @@ input::-webkit-inner-spin-button {
 }
 
 .item:has(input:focus), .item:has(textarea:focus) {
-    outline: solid 3px var(--focus0) !important;
+    outline: solid 3px var(--focus1) !important;
 }
 
 textarea:focus, input:focus{
@@ -319,4 +342,43 @@ vdiv {
 
 ::placeholder {
     color:    var(--placeholder);
+}
+
+.padded {
+    padding: 20px;
+}
+
+strong:active {
+    color: var(--focus0);
+}
+
+*::selection {
+  background: var(--focus0);
+  color: var(--base2);
+}
+*::-moz-selection {
+  background: var(--focus0);
+  color: var(--base2);
+}
+*::-webkit-selection {
+  background: var(--focus0);
+  color: var(--base2);
+}
+
+.aside {
+    max-width: 275px;
+    text-align: center;
+    color: var(--content2);
+    font-size: smaller;
+    font-weight: lighter;
+}
+
+.actiontext:hover {
+    color: var(--focus1);
+}
+
+.nopad {
+    padding-left: 0px;
+    padding: 0px;
+    margin: 0px;
 }

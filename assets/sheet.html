@@ -25,72 +25,75 @@
         console.log(JSON.parse(document.cookie))
     });
     </script>
-    <div class="horiz" style="grid-area: save;">
-        <button onclick="save()" ><strong class="bigtext">save</strong></button>
-        <button onclick="savefile()" ><strong class="bigtext">save file</strong></button>
-        <label for="file-input" >
-            <strong class="bigtext">load file</strong>
-        </label>
-        <input id="file-input" type="file" onclick="load()" style="display: none;"></input>
+    <div class="verti" style="grid-area: save;">
+        <!-- <button onclick="save()" ><strong class="bigtext">save</strong></button> -->
+        <div class="horiz">
+            <button onclick="savefile()" ><strong class="bigtext actiontext">save</strong></button>
+            <label for="file-input" >
+                <strong class="bigtext actiontext">load</strong>
+            </label>
+            <input onchange="save()"  id="file-input" type="file" onclick="load()" style="display: none;"></input>
+        </div>
+        <div class="aside">these buttons save your character as a file. your character is saved in your local browser automatically.</div>
     </div>
     <div class="item" style="grid-area: name;" >
         <div class="doubleitem">
             <strong>name</strong>
             <vdiv></vdiv>
-            <input id="name" type="text" placeholder="name" />
+            <input onchange="save()"  id="name" type="text" placeholder="name" />
             <strong>ancestry</strong>
             <vdiv></vdiv>
-            <input id="ancestry" type="text" placeholder="ancestry" />
+            <input onchange="save()"  id="ancestry" type="text" placeholder="ancestry" />
         </div>
     </div>
     <div class="verti item" style="grid-area: background;">
         <strong class="spin">background</strong>
         <hdiv></hdiv>
-        <textarea id="background" placeholder="background"></textarea> 
+        <textarea onchange="save()"  id="background" placeholder="background"></textarea> 
     </div>  
     <div class="verti item" style="grid-area: bonds;">
         <strong>bonds</strong>
         <hdiv></hdiv>
-        <textarea id="bonds" placeholder="bonds"></textarea> 
+        <textarea onchange="save()"  id="bonds" placeholder="bonds"></textarea> 
     </div>
     <div class="verti item" id="stats" style="grid-area: stats;">
         <div class="horiz">
-            <input type="number" value="0" id="str" /> <b>str</b>
+            <input onchange="save()"  type="number" value="0" placeholder="0" id="str" /> <b>str</b>
         </div>
         <hdiv></hdiv>
         <div class="horiz">
-            <input type="number" value="0" id="dex" /><b>dex</b> <br>
+            <input onchange="save()"  type="number" value="0" placeholder="0" id="dex" /><b>dex</b> <br>
         </div>
         <hdiv></hdiv>
         <div class="horiz">
-            <input type="number" value="0" id="wis" /><b>wis</b> <br>
+            <input onchange="save()"  type="number" value="0" placeholder="0" id="wis" /><b>wis</b> <br>
         </div>
         <hdiv></hdiv>
         <div class="horiz">
-            <input type="number" value="0" id="wil" /><b>wil</b>
+            <input onchange="save()"  type="number" value="0" placeholder="0" id="wil" /><b>wil</b>
         </div>
         <hdiv></hdiv>
         <div class="horiz">
-            <input id="ac" type="number" value="0"/> <b>ac</b>  <br>
+            <input onchange="save()"  id="ac" type="number" value="0" placeholder="0"/> <b>ac</b>  <br>
         </div>
         <hdiv></hdiv>
         <div class="numcontainer horiz">
-            <input id="hp" type="number" value="0"/>/<input id="maxhp" type="number" value="0"/>
+            <input onchange="save()"  id="hp" type="number" value="0" placeholder="0"/>/<input onchange="save()"  id="maxhp" type="number" value="0" placeholder="0"/>
             <b>hp</b>
         </div>
         <hdiv></hdiv>
         <div class="horiz">
-            <input id="slots" type="number" value="0"> <b>slots</b>  <br>
+            <input onchange="save()"  id="slots" type="number" value="0" placeholder="0"> <b>slots</b>  <br>
         </div>
     </div>
     <div class="verti item" style="grid-area: items;">
         <strong>items</strong>
         <hdiv></hdiv>
-        <textarea id="items" placeholder="items"></textarea>
+        <textarea onchange="save()"  id="items" placeholder="items"></textarea>
     </div>
     <div class="verti item" style="grid-area: notes; min-height: 700px;">
         <strong>notes</strong>
         <hdiv></hdiv>
-        <textarea id="notes" placeholder="notes"></textarea>
+        <textarea onchange="save()"  id="notes" placeholder="notes"></textarea>
     </div>
 </div>
