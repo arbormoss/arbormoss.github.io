@@ -114,9 +114,7 @@ body {
     .doubleitem {
         grid-template-columns: auto auto 1fr !important;
     }
-    :root {
-        font-size: 20px;
-    }
+    
     /* .title {
         font-size: 2em;
     }
@@ -130,7 +128,15 @@ body {
         font-size: 1em;
     } */
 }
-
+:root {
+    font-size: 22px;
+}
+textarea {
+    font-size: 19px;
+}
+input {
+    font-size: 19px;
+}
 .item {
     border-radius: 5px;
     outline: solid 1px var(--content2);
@@ -209,7 +215,7 @@ body {
     font-family: "UnifrakturCook";
     font-weight: 700;
     font-style: normal;
-    font-size: 1.8em;
+    font-size: 1.7em;
 }
 
 
@@ -231,7 +237,7 @@ a, button {
     color: var(--bold-col);
     padding-left: 30px;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .bigtext {
