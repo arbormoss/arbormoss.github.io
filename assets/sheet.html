@@ -1,65 +1,96 @@
 <div class="grid">
-    <div class="item" style="grid-area: name;">
-        <div class=" horiz">
-            <strong>name</strong><input id="name" type="text" /><br>
-            <strong>ancestry</strong><input id="ancestry" type="text" /><br>
+    <script>
+    fileinput = document.getElementById("file-input")
+    fileinput.onchange = () => {
+        infile = fileinput.files[0]
+
+        if (infile) {
+            reader = new FileReader()
+            reader.readAsText(infile, "UTF-8")
+
+            reader.onload = function (evt) {
+                load(JSON.parse(evt.target.result))
+            }
+            reader.onerror = function (evt) {
+                load(JSON.parse(document.cookie))
+            }
+        } else {
+            load(JSON.parse(document.cookie))
+        }
+    }
+     	
+
+    $( document ).ready(function() {
+        load(JSON.parse(document.cookie))
+        console.log(JSON.parse(document.cookie))
+    });
+    </script>
+    <div class="horiz" style="grid-area: save;">
+        <button onclick="save()" ><strong class="bigtext">save</strong></button>
+        <button onclick="savefile()" ><strong class="bigtext">save file</strong></button>
+        <label for="file-input" >
+            <strong class="bigtext">load file</strong>
+        </label>
+        <input id="file-input" type="file" onclick="load()" style="display: none;"></input>
+    </div>
+    <div class="item" style="grid-area: name;" >
+        <div class="doubleitem">
+            <strong>name</strong>
+            <vdiv></vdiv>
+            <input id="name" type="text" placeholder="name" />
+            <strong>ancestry</strong>
+            <vdiv></vdiv>
+            <input id="ancestry" type="text" placeholder="ancestry" />
         </div>
     </div>
-    <div class="horiz item" style="grid-area: char;">
-        <div class="horiz">
-            <strong>backgroud</strong><textarea id="backgroud"></textarea>
-            <strong>bonds</strong><textarea id="bonds"></textarea>
-        </div>
-    </div>    
-    <div class="item" style="grid-area: stats;">
-        <div class="horiz">
-            <input type="number" id="str" /> <b>str</b>
-        </div>
-        <div class="horiz">
-            <input type="number" id="dex" /><b>dex</b> <br>
-        </div>
-        <div class="horiz">
-            <input type="number" id="wis" /><b>wis</b> <br>
-        </div>
-        <div class="horiz">
-            <input type="number" id="wil" /><b>wil</b>
-        </div>
+    <div class="verti item" style="grid-area: background;">
+        <strong class="spin">background</strong>
+        <hdiv></hdiv>
+        <textarea id="background" placeholder="background"></textarea> 
+    </div>  
+    <div class="verti item" style="grid-area: bonds;">
+        <strong>bonds</strong>
+        <hdiv></hdiv>
+        <textarea id="bonds" placeholder="bonds"></textarea> 
     </div>
-    <div class="item" style="grid-area: calc;">
+    <div class="verti item" id="stats" style="grid-area: stats;">
         <div class="horiz">
-            <input id="ac" type="number"/> <b>ac</b>  <br>
+            <input type="number" value="0" id="str" /> <b>str</b>
         </div>
+        <hdiv></hdiv>
         <div class="horiz">
-            <div class="numcontainer horiz">
-                <input id="hp" type="number"/>/<input type="number"/>
-            </div>
+            <input type="number" value="0" id="dex" /><b>dex</b> <br>
+        </div>
+        <hdiv></hdiv>
+        <div class="horiz">
+            <input type="number" value="0" id="wis" /><b>wis</b> <br>
+        </div>
+        <hdiv></hdiv>
+        <div class="horiz">
+            <input type="number" value="0" id="wil" /><b>wil</b>
+        </div>
+        <hdiv></hdiv>
+        <div class="horiz">
+            <input id="ac" type="number" value="0"/> <b>ac</b>  <br>
+        </div>
+        <hdiv></hdiv>
+        <div class="numcontainer horiz">
+            <input id="hp" type="number" value="0"/>/<input id="maxhp" type="number" value="0"/>
             <b>hp</b>
         </div>
+        <hdiv></hdiv>
         <div class="horiz">
-            <input id="slots" type="number"> <b>slots</b>  <br>
+            <input id="slots" type="number" value="0"> <b>slots</b>  <br>
         </div>
-    </div>    
-    <textarea id="items" class="item" style="grid-area: items;">
-slot
-slot
-slot
-slot
-slot
-slot
-slot
-slot
-slot
-    </textarea>
-    <textarea id="notes" class="item" style="grid-area: notes; min-height: 300px;">
-notes
-notes
-notes
-notes
-notes
-notes
-notes
-notes
-notes
-notes
-    </textarea>
+    </div>
+    <div class="verti item" style="grid-area: items;">
+        <strong>items</strong>
+        <hdiv></hdiv>
+        <textarea id="items" placeholder="items"></textarea>
+    </div>
+    <div class="verti item" style="grid-area: notes; min-height: 700px;">
+        <strong>notes</strong>
+        <hdiv></hdiv>
+        <textarea id="notes" placeholder="notes"></textarea>
+    </div>
 </div>

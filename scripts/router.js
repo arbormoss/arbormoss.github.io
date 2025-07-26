@@ -17,7 +17,8 @@ window.addEventListener("load", () => {
             router.navigate("/");
         })
         .resolve();
-});
+    }
+);
 
 // make page conetent match loc.html
 function show(loc) {

@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Pirata+One&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=UnifrakturCook:wght@700&display=swap');
-
 :root {
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -41,6 +40,7 @@
     --focus2: var(--orange);
 
     --bg: var(--bg0);
+    --placeholder: var(--content0);
 
     --shadow: drop-shadow(6px 6px 0px var(--content2));
 }
@@ -72,52 +72,46 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: auto;
-    grid-template-areas: 
-        "name name char char char"
-        "stats items items items items"
-        "calc items items items items"
-        "notes notes notes notes notes";
+    grid-template-columns: auto 1fr 1fr;
+    grid-template-areas:
+    "save save save"
+    "name name bonds"
+    "background background bonds"
+    "stats items items"
+    "calc items items"
+    "notes notes notes";
 }
 
 @media screen and (max-width: 800px) {
     .grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas: 
-            "name name char"
-            "stats items items"
-            "calc items items"
-            "notes notes notes";
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .grid {
         grid-template-columns: 1fr;
         grid-template-areas: 
+            "save"
             "name"
-            "char"
+            "background"
+            "bonds"
             "stats"
             "calc"
             "items"
             "notes";
     }
+    .doubleitem {
+        grid-template-columns: auto auto 1fr !important;
+    }
 }
-
 
 .item {
     border-radius: 5px;
     outline: solid 1px var(--content2);
     background-color: var(--bg);
     color: var(--content3);
-    padding: 15px;
+    padding: 0px;
     margin: 5px;
-    min-height: 50px;
-    height: 1fr;
+    height: auto;
+    min-height: 1fr;
 }
 
-.item:hover {
+.item:hover, .sel:hover {
     outline: solid 3px var(--content2);
 }
 
@@ -130,6 +124,31 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.verti {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.doubleh {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+@media screen and (max-width: 540px) {
+    .splitdouble {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+.doublev {
+    display: grid;
+    grid-template-rows: auto 1fr;
 }
 
 .header {
@@ -157,25 +176,49 @@ body {
 
 b {
     color: var(--focus1);
+    margin: 5px;
 }
 
 strong {
     color: var(--focus2);
+    margin: 10px;
 }
 
-a {
+a strong, button strong {
+    margin: 12px;
+}
+
+a, button {
     color: var(--bold-col);
     padding-left: 30px;
     text-decoration: none;
     font-size: large;
 }
 
+.bigtext {
+    font-size: 1.5em;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 input, textarea, .numcontainer {
-    border-radius: 5px;
-    outline: solid 1px var(--content2);
-    background-color: var(--bg);
+    font-family: "Crimson Pro", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    /* outline: solid 1px var(--content2); */
     color: var(--content3);
     border: none;
+    background-color: var(--bg);
 }
 
 input{
@@ -183,17 +226,34 @@ input{
     margin: 5px;
 }
 
-input[type=number] {
-    max-width: 80px;
+.item:has(> input.active) {
+    outline: solid 3px var(--focus0);
 }
-input[type=text] {
-    max-width: 100px; 
+
+input[type=number] {
+    width: 80px;
+    -moz-appearance:textfield; /* Firefox */
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.item:has(input:focus), .item:has(textarea:focus) {
+    outline: solid 3px var(--focus0) !important;
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }
 
 .numcontainer input[type=number] {
     outline: none;
     padding: 0;
-    max-width: 32px;
+    max-width: 34.5px;
 }
 
 .numcontainer {
@@ -201,9 +261,62 @@ input[type=text] {
 }
 
 textarea {
-    resize: none;
+    resize: unset;
     width: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    height: 100%;
+    min-height: 120px;
+    padding: 10px;
+}
+
+vdiv, hdiv {
+    background-color: var(--content2);
+    justify-self: center;
+    align-self: center;
+    display: block;
+}
+hdiv {
+    width: calc(100% - 20px);
+    max-height: 0px;
+    min-height: 0px;
+    border-top: solid 1px var(--content2);
+}
+vdiv {
+    height: calc(100% - 20px);
+    max-width: 0px;
+    min-width: 0px;
+    border-right: solid 1px var(--content2);
+}
+
+.doubleitem {
+    display: grid;
+    grid-template-columns: repeat(2, auto auto 1fr);
+}
+
+#stats {
+    align-items: start;
+}
+
+::-webkit-input-placeholder {
+    color:    var(--placeholder);
+}
+:-moz-placeholder {
+    color:    var(--placeholder);
+    opacity:  1;
+}
+::-moz-placeholder {
+    color:    var(--placeholder);
+    opacity:  1;
+}
+:-ms-input-placeholder {
+    color:    var(--placeholder);
+}
+::-ms-input-placeholder {
+    color:    var(--placeholder);
+}
+
+::placeholder {
+    color:    var(--placeholder);
 }
