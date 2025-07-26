@@ -398,3 +398,7 @@ strong:active {
     padding: 0px;
     margin: 0px;
 }
+
+.smalltext {
+    font-size: 1em;
+}
