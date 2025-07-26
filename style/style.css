@@ -98,7 +98,7 @@ body {
     "readme readme readme";
 }
 
-@media screen and (max-width: 800px), (pointer:none), (pointer:coarse) {
+@media screen and (max-width: 950px), (pointer:none), (pointer:coarse) {
     .grid {
         grid-template-columns: 1fr;
         grid-template-areas: 
@@ -127,14 +127,18 @@ body {
     .aside {
         font-size: 1em;
     } */
+
+    #background, #bonds {
+        min-height: 300px;
+    }
+    #items {
+        min-height: 450px;
+    }
 }
 :root {
     font-size: 22px;
 }
 textarea {
-    font-size: 19px;
-}
-input {
     font-size: 19px;
 }
 .item {
@@ -177,7 +181,7 @@ input {
     display: grid;
     grid-template-columns: auto 1fr;
 }
-@media screen and (max-width: 540px), (any-pointer: none), (any-pointer: coarse) {
+@media screen and (max-width: 700px), (any-pointer: none), (any-pointer: coarse) {
     .splitdouble {
         grid-template-columns: 1fr;
         justify-items: center;
@@ -269,6 +273,8 @@ input, textarea, .numcontainer {
 input{
     padding: 5px;
     margin: 5px;
+    font-size: 19px;
+    width: 100%;
 }
 
 .item:has(> input.active) {
