@@ -14,5 +14,6 @@ https://arbormoss.github.io/
 - [ ] guided character creator
 - [ ] fix dark theme
 - [ ] file save on mobile
+- [ ] custom domain
 - [ ] ui tweaks
 - [ ] automate ac, slots? 
