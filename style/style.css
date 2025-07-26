@@ -44,7 +44,7 @@
 
     --shadow: drop-shadow(6px 6px 0px var(--content2));
 }
-
+/*
 @media (prefers-color-scheme: dark) {
     :root {
         --bg0: var(--base03);
@@ -59,12 +59,8 @@
         --focus0: var(--violet);
         --focus1: var(--green);
         --focus2: var(--blue);
-
-        /*--focus0: var(--green);
-        --focus1: var(--violet);
-        --focus2: var(--blue);*/
     }
-}
+} */
 
 body {
     background-color: var(--bg);
