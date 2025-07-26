@@ -43,6 +43,10 @@
     --placeholder: var(--content0);
 
     --shadow: drop-shadow(6px 6px 0px var(--content2));
+
+    width: 100vw;
+    height: 100vh;
+
 }
 /*
 @media (prefers-color-scheme: dark) {
@@ -61,13 +65,19 @@
         --focus2: var(--blue);
     }
 } */
-
+html {
+    width: 100%;
+    height: 100%;
+}
 body {
+    width: 100%;
+    height: 100%;
     background-color: var(--bg);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .grid {
@@ -185,6 +195,7 @@ body {
 .header {
     filter: var(--shadow);
     margin-bottom: 20px;
+    margin-top: 25px;
 }
 
 .icon {
@@ -206,6 +217,7 @@ body {
     font-style: normal;
     font-size: 2.5em;
 }
+
 
 b {
     color: var(--focus1);
