@@ -162,6 +162,20 @@ body {
     a:has(strong), a:has(h2) {
         padding-left: 0;
     }
+    :root {
+        --bg0: var(--base03);
+        --bg1: var(--base02);
+        --content0: var(--base01);
+        --content1: var(--base00);
+        --content2: var(--base0);
+        --content3: var(--base1);
+        --fg0: var(--base2);
+        --fg1: var(--base3);
+
+        --focus0: var(--violet);
+        --focus1: var(--green);
+        --focus2: var(--blue);
+    }
 }
 .doublev {
     display: grid;
