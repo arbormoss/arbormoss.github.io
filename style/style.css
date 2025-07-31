@@ -14,7 +14,7 @@
     --base3: #fdf6e3;
     --yellow: #b58900;
     --orange: #cb4b16;
-    --red: #dc322f;
+    --red: #dc322fk;
     --magenta: #d33682;
     --violet: #6c71c4;
     --blue: #268bd2;
@@ -83,18 +83,11 @@ body {
     "notes notes notes";
 }
 
-.homegrid {
+.descgrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     grid-template-areas: 
-    "readme readme readme";
-}
-
-.creategrid {
-    display: grid;/* same as homegrid for now, will be changed when create is added */
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 
-    "readme readme readme";
+    "readme";
 }
 
 .statcontainer {

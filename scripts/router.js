@@ -13,6 +13,9 @@ window.addEventListener("load", () => {
         .on("/create", (match) => {
             show("create")
         })
+        .on("/physical", (match) => {
+            show("physical")
+        })
         .on("/(.*)", () => {
             router.navigate("/");
         })
