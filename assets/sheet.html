@@ -55,38 +55,42 @@
         <strong>bonds</strong>
         <hdiv></hdiv>
         <textarea onchange="save()"  id="bonds" placeholder="bonds"></textarea> 
+    </div>  
+    <div class="statcontainer item" >
+         <div class="verti" id="stats" style="grid-area: primary;">
+            <div class="horiz">
+                <input onchange="save()"  type="number" value="0" placeholder="0" id="str" /> <b>str</b>
+            </div>
+            <hdiv></hdiv>
+            <div class="horiz">
+                <input onchange="save()"  type="number" value="0" placeholder="0" id="dex" /><b>dex</b> <br>
+            </div>
+            <hdiv></hdiv>
+            <div class="horiz">
+                <input onchange="save()"  type="number" value="0" placeholder="0" id="wis" /><b>wis</b> <br>
+            </div>
+            <hdiv></hdiv>
+            <div class="horiz">
+                <input onchange="save()"  type="number" value="0" placeholder="0" id="wil" /><b>wil</b>
+            </div>
+        </div>
+        <hdiv style="grid-area: split"></hdiv>
+        <div class="verti" id="stats" style="grid-area: secondary;">
+            <div class="horiz">
+                <input onchange="save()"  id="ac" type="number" value="0" placeholder="0"/> <b>ac</b>  <br>
+            </div>
+            <hdiv></hdiv>
+            <div class="numcontainer horiz">
+                <input onchange="save()"  id="hp" type="number" value="0" placeholder="0"/>/<input onchange="save()"  id="maxhp" type="number" value="0" placeholder="0"/>
+                <b>hp</b>
+            </div>
+            <hdiv></hdiv>
+            <div class="horiz">
+                <input onchange="save()"  id="slots" type="number" value="0" placeholder="0"> <b>slots</b>  <br>
+            </div>
+        </div>
     </div>
-    <div class="verti item" id="stats" style="grid-area: stats;">
-        <div class="horiz">
-            <input onchange="save()"  type="number" value="0" placeholder="0" id="str" /> <b>str</b>
-        </div>
-        <hdiv></hdiv>
-        <div class="horiz">
-            <input onchange="save()"  type="number" value="0" placeholder="0" id="dex" /><b>dex</b> <br>
-        </div>
-        <hdiv></hdiv>
-        <div class="horiz">
-            <input onchange="save()"  type="number" value="0" placeholder="0" id="wis" /><b>wis</b> <br>
-        </div>
-        <hdiv></hdiv>
-        <div class="horiz">
-            <input onchange="save()"  type="number" value="0" placeholder="0" id="wil" /><b>wil</b>
-        </div>
-        <hdiv></hdiv>
-        <div class="horiz">
-            <input onchange="save()"  id="ac" type="number" value="0" placeholder="0"/> <b>ac</b>  <br>
-        </div>
-        <hdiv></hdiv>
-        <div class="numcontainer horiz">
-            <input onchange="save()"  id="hp" type="number" value="0" placeholder="0"/>/<input onchange="save()"  id="maxhp" type="number" value="0" placeholder="0"/>
-            <b>hp</b>
-        </div>
-        <hdiv></hdiv>
-        <div class="horiz">
-            <input onchange="save()"  id="slots" type="number" value="0" placeholder="0"> <b>slots</b>  <br>
-        </div>
-    </div>
-    <div class="verti item" style="grid-area: items;">
+       <div class="verti item" style="grid-area: items;">
         <strong>items</strong>
         <hdiv></hdiv>
         <textarea onchange="save()"  id="items" placeholder="items"></textarea>

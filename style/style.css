@@ -80,7 +80,6 @@ body {
     "name name bonds"
     "background background bonds"
     "stats items items"
-    "calc items items"
     "notes notes notes";
 }
 
@@ -98,22 +97,39 @@ body {
     "readme readme readme";
 }
 
+.statcontainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "primary"
+        "split"
+        "secondary";
+    align-items: start;
+}
+
 @media screen and (max-width: 950px), (pointer:none), (pointer:coarse) {
     .grid {
         grid-template-columns: 1fr;
         grid-template-areas: 
             "save"
             "name"
-            "background"
-            "bonds"
             "stats"
-            "calc"
             "items"
+            "bonds"
+            "background"
             "notes";
     }
     .doubleitem {
         grid-template-columns: auto auto 1fr !important;
     }
+    .statcontainer {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "primary secondary";
+    }
+    /* .statcontainer hdiv {
+        display: none;
+    } */
     
     /* .title {
         font-size: 2em;
@@ -308,7 +324,7 @@ textarea:focus, input:focus{
 }
 
 .numcontainer {
-    margin: 5px;
+    margin: 2.5px;
 }
 
 textarea {
@@ -327,18 +343,17 @@ vdiv, hdiv {
     justify-self: center;
     align-self: center;
     display: block;
+
+    border-top: solid 1px var(--content2);
+    border-right: solid 1px var(--content2);
 }
 hdiv {
     width: calc(100% - 20px);
-    max-height: 0px;
-    min-height: 0px;
-    border-top: solid 1px var(--content2);
+    height: 0px;
 }
 vdiv {
     height: calc(100% - 20px);
-    max-width: 0px;
-    min-width: 0px;
-    border-right: solid 1px var(--content2);
+    width: 0px;
 }
 
 .doubleitem {
