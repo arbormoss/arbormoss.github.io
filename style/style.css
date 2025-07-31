@@ -234,7 +234,7 @@ textarea {
 
 b {
     color: var(--focus1);
-    margin: 5px;
+    /*margin: 5px;*/
 }
 
 strong {
