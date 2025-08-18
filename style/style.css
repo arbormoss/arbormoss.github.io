@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Pirata+One&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=UnifrakturCook:wght@700&display=swap');
 :root {
+
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;
 
-    --base03: #002b36;
+    --base03: #283035;/*#002b36;*/
     --base02: #073642;
     --base01: #586e75;
     --base00: #657b83;
     --base0: #839496;
     --base1: #93a1a1;
     --base2: #eee8d5;
-    --base3: #fdf6e3;
+    --base3: #fdf6e3;/*#fdf6e3;*/
     --yellow: #b58900;
     --orange: #cb4b16;
     --red: #dc322fk;
@@ -27,40 +28,45 @@
     font-style: normal;
 
     --bg0: var(--base3);
-    --bg1: var(--base2);
-    --content0: var(--base1);
-    --content1: var(--base0);
-    --content2: var(--base00);
-    --content3: var(--base01);
-    --fg0: var(--base02);
+    --bg1: var(--base3);
+    --content0: var(--base03);
+    --content1: var(--base03);
+    --content2: var(--base03);
+    --content3: var(--base03);
+    --fg0: var(--base03);
     --fg1: var(--base03);
 
+    --focus0: var(--base03);
+    --focus1: var(--base03);
+    --focus2: var(--base03);
+
+    /*
     --focus0: var(--magenta);
     --focus1: var(--yellow);
     --focus2: var(--orange);
+    */
 
     --bg: var(--bg0);
-    --placeholder: var(--content0);
+    --placeholder: var(--fg0);
 
-    --shadow: drop-shadow(6px 6px 0px var(--content2));
+    --shadow: drop-shadow(6px 6px 0px var(--fg0));
 }
-/*
 @media (prefers-color-scheme: dark) {
     :root {
         --bg0: var(--base03);
-        --bg1: var(--base02);
-        --content0: var(--base01);
-        --content1: var(--base00);
-        --content2: var(--base0);
-        --content3: var(--base1);
-        --fg0: var(--base2);
+        --bg1: var(--base03);
+        --content0: var(--base3);
+        --content1: var(--base3);
+        --content2: var(--base3);
+        --content3: var(--base3);
+        --fg0: var(--base3);
         --fg1: var(--base3);
 
-        --focus0: var(--violet);
-        --focus1: var(--green);
-        --focus2: var(--blue);
+        --focus0: var(--base3);
+        --focus1: var(--base3);
+        --focus2: var(--base3);
     }
-} */
+}
 body {
     width: 100%;
     height: 100%;
@@ -70,6 +76,16 @@ body {
     align-items: center;
     padding: 0px;
     margin: 0px;
+
+    /*background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), 
+            url("../assets/grunge1.jpg");
+    background-attachment: fixed;
+    background-size: 120% 120%;*/
+}
+
+.savebar {
+    max-width: fit-content;
+    justify-self: center;
 }
 
 .grid {
@@ -155,7 +171,7 @@ textarea {
     outline: solid 1px var(--content2);
     background-color: var(--bg);
     color: var(--content3);
-    padding: 0px;
+    padding: 10px;
     margin: 5px;
     height: auto;
     min-height: 1fr;
